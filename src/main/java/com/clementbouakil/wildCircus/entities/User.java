@@ -27,11 +27,6 @@ public class User {
 
     private String password;
 
-    private String role;
-    private String address;
-    private String city;
-    private String phoneNumber;
-
     public Long getId() {
         return id;
     }
@@ -72,64 +67,22 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public User() {
     }
 
-    public User(Long id, String firstname, String lastname, String email, String password, String role, String address,
-            String city, String phoneNumber) {
+    public User(Long id, String firstname, String lastname, String email, String password) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
-        this.role = role;
-        this.address = address;
-        this.city = city;
-        this.phoneNumber = phoneNumber;
     }
 
-    public User(String firstname, String lastname, String email, String password, String role, String address,
-            String city, String phoneNumber) {
+    public User(String firstname, String lastname, String email, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
-        this.role = role;
-        this.address = address;
-        this.city = city;
-        this.phoneNumber = phoneNumber;
     }
 
 }
