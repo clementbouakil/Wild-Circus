@@ -36,7 +36,7 @@ public class User implements UserDetails {
     @NotNull(message = "Merci de renseigner un mot de passe")
     private String password;
 
-    private String role = "USER";
+    private String role;
 
     public Long getId() {
         return id;
@@ -121,6 +121,12 @@ public class User implements UserDetails {
     }
 
     public User() {
+    }
+
+    public User(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
     }
 
 }
