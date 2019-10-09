@@ -104,4 +104,32 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public User() {
+    }
+
+    public User(Long id, String firstname, String lastname, String email, String password, String role, String address,
+            String city, String phoneNumber) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.address = address;
+        this.city = city;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public User(String firstname, String lastname, String email, String password, String role, String address,
+            String city, String phoneNumber) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.address = address;
+        this.city = city;
+        this.phoneNumber = phoneNumber;
+    }
+
 }
