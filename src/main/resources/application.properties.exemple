@@ -7,4 +7,6 @@ spring.jpa.hibernate.ddl-auto = update
 # Custom property
 user.username = #######
 user.password = #######
+user.firstname = #######
+user.lastname = #######
 user.role = ADMIN

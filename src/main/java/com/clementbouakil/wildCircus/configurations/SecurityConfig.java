@@ -27,27 +27,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry
-            .addResourceHandler("/resources/**")
-            .addResourceLocations("/resources/");
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web
-            .ignoring()
-            .antMatchers("/resources/**");
+        web.ignoring().antMatchers("/resources/**");
     }
-    
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
             .csrf().disable().authorizeRequests()
-            .antMatchers("/**").permitAll()
+            .antMatchers(HttpMethod.GET, "/CSS/**", "/IMG/**").permitAll()
+            .antMatchers(HttpMethod.GET, "/", "/registration").permitAll()
+            .antMatchers(HttpMethod.POST, "/users").permitAll()
+            .anyRequest().authenticated()
             .and()
             .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/", true)
+                .failureUrl("/?error=true")
                 .permitAll()
             .and()
             .httpBasic();
