@@ -1,5 +1,7 @@
 package com.clementbouakil.wildCircus.entities;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,8 +10,11 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 @Entity
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +30,14 @@ public class User {
     @Column(unique = true)
     private String email;
 
+    @NotNull(message = "Merci de renseigner un nom d'utilisateur")
+    @Column(unique = true)
+    private String username;
+
+    @NotNull(message = "Merci de renseigner un mot de passe")
     private String password;
+
+    private String role = "USER";
 
     public Long getId() {
         return id;
@@ -67,22 +79,48 @@ public class User {
         this.password = password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public User() {
     }
 
-    public User(Long id, String firstname, String lastname, String email, String password) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
     }
 
-    public User(String firstname, String lastname, String email, String password) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 
 }
