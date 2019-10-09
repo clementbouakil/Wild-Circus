@@ -46,8 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
             .and()
             .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/", true)
-                .failureUrl("/?error=true")
+                .defaultSuccessUrl("/")
                 .permitAll()
             .and()
             .httpBasic();
