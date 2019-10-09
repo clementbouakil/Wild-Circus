@@ -15,7 +15,18 @@ main {
 }
 
 h1 {
-    text-transform: uppercase;
+    font-family: 'Mansalva', cursive;
+    font-size: 5rem;
+}
+
+a {
+    color: #ff3c38;
+}
+
+a:hover {
+    color:white;
+    text-decoration: none;
+    transition: .1s;
 }
 
 .input-group-text {
