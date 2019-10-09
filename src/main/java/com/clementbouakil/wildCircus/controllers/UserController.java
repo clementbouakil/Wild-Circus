@@ -1,5 +1,8 @@
 package com.clementbouakil.wildCircus.controllers;
 
+import javax.validation.Valid;
+
+import com.clementbouakil.wildCircus.entities.User;
 import com.clementbouakil.wildCircus.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +16,8 @@ public class UserController {
     UserRepository userRepository;
 
     @PostMapping("/users")
-    public String create() {
+    public String create(@Valid User user) {
+        userRepository.save(user);
         return "redirect:/registration";
     }
 
