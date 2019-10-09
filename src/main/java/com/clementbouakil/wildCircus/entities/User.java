@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Entity
 public class User implements UserDetails {
@@ -20,10 +22,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull(message = "Merci de renseigner votre prénom")
     private String firstname;
-
-    @NotNull(message = "Merci de renseigner votre nom")
     private String lastname;
 
     @Email(message = "Merci de saisir un email valide")
@@ -76,7 +75,8 @@ public class User implements UserDetails {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        this.password = encoder.encode(password);
     }
 
     public String getRole() {
@@ -93,9 +93,6 @@ public class User implements UserDetails {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public User() {
     }
 
     @Override
@@ -121,6 +118,9 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
+    }
+
+    public User() {
     }
 
 }

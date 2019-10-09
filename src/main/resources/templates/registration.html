@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <div th:replace="fragments/head.html :: head"></div>
-    <body>
+    <body class="container">
+        <div th:replace="fragments/navbar.html :: navbar"></div>
         <main>
             <h1>Registration</h1>
-            <section class="registration-user col-12 col-md-6 p-2">
+            <section class="registration-user p-4">
                 <form h:action="@{/users}" method="POST">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -71,11 +72,12 @@
                             required
                         />
                     </div>
-                    <button type="submit" class="btn btn-success">Register</button>
+                    <button type="submit" class="btn btn-success">
+                        Register
+                    </button>
                 </form>
             </section>
         </main>
-
         <div th:replace="fragments/script.html :: script"></div>
     </body>
 </html>

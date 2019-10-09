@@ -11,4 +11,9 @@ public class PageController {
         return "registration";
     }
 
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
 }
