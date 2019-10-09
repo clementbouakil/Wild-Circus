@@ -26,17 +26,12 @@ public class User implements UserDetails {
     private String lastname;
 
     @Email(message = "Merci de saisir un email valide")
-    @Column(unique = true)
     private String email;
-
-    @NotNull(message = "Merci de renseigner un nom d'utilisateur")
-    @Column(unique = true)
-    private String username;
 
     @NotNull(message = "Merci de renseigner un mot de passe")
     private String password;
 
-    private String role;
+    private String role = "USER";
 
     public Long getId() {
         return id;
@@ -87,12 +82,9 @@ public class User implements UserDetails {
         this.role = role;
     }
 
+    @Override
     public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+        return this.email;
     }
 
     @Override
@@ -123,10 +115,17 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String username, String password, String role) {
-        this.username = username;
+    public User(String email, String password, String role) {
+        this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public User(String firstname, String lastname, String email, String password) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
     }
 
 }

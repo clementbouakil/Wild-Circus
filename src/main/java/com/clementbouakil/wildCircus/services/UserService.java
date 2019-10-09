@@ -18,7 +18,7 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-    @Value("${user.username}")
+    @Value("${user.email}")
     private String email;
 
     @Value("${user.password}")
@@ -28,15 +28,15 @@ public class UserService implements UserDetailsService {
     private String role;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         if (userRepository.count() == 0) {
             PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-            User admin = new User(username, encoder.encode(password), role);
+            User admin = new User(email, encoder.encode(password), role);
             userRepository.save(admin);
         }
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByEmail(email);
         if (user == null) {
-            throw new UsernameNotFoundException(username);
+            throw new UsernameNotFoundException(email);
         }
         return user;
     }

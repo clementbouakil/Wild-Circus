@@ -6,11 +6,11 @@
         <main>
             <h1>Registration</h1>
             <section class="registration-user p-4">
-                <form h:action="@{/users}" method="POST">
+                <form action="/login" method="POST">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="username">
-                                Username
+                                Email
                             </span>
                         </div>
                         <input
@@ -27,7 +27,7 @@
                             </span>
                         </div>
                         <input
-                            type="text"
+                            type="password"
                             class="form-control"
                             name="password"
                             required
