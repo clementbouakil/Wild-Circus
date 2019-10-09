@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <div th:replace="fragments/head.html :: head"></div>
+    <body class="container">
+        <div th:replace="fragments/navbar.html :: navbar"></div>
+        <main>
+            <h1>Registration</h1>
+            <section class="registration-user p-4">
+                <form h:action="@{/users}" method="POST">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="username">
+                                Username
+                            </span>
+                        </div>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="username"
+                            required
+                        />
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="password">
+                                Password
+                            </span>
+                        </div>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="password"
+                            required
+                        />
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                        Login
+                    </button>
+                </form>
+            </section>
+        </main>
+        <div th:replace="fragments/script.html :: script"></div>
+    </body>
+</html>
