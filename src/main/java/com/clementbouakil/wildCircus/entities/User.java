@@ -127,4 +127,12 @@ public class User implements UserDetails {
         this.password = password;
     }
 
+    public User(String email, String password, String role, String firstname, String lastname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
 }
