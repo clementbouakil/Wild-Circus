@@ -42,11 +42,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
             .antMatchers(HttpMethod.GET, "/CSS/**", "/IMG/**").permitAll()
             .antMatchers(HttpMethod.GET, "/", "/registration").permitAll()
             .antMatchers(HttpMethod.POST, "/users").permitAll()
+            .antMatchers("/admin").hasAuthority("ADMIN")
             .anyRequest().authenticated()
             .and()
             .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/home", true)
                 .permitAll()
             .and()
             .httpBasic();
