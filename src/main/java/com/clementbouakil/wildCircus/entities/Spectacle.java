@@ -24,7 +24,7 @@ public class Spectacle {
 
     private String duration;
 
-    private String price;
+    private double price;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
@@ -76,11 +76,11 @@ public class Spectacle {
         this.duration = duration;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

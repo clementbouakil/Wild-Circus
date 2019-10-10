@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Order {
+public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,16 +40,16 @@ public class Order {
         this.quantity = quantity;
     }
 
-    public Order() {
+    public Ticket() {
     }
 
-    public Order(Long id, double price, int quantity) {
+    public Ticket(Long id, double price, int quantity) {
         this.id = id;
         this.price = price;
         this.quantity = quantity;
     }
 
-    public Order(double price, int quantity) {
+    public Ticket(double price, int quantity) {
         this.price = price;
         this.quantity = quantity;
     }
