@@ -132,7 +132,7 @@ a:hover {
 
 .add {
     height: 50px;
-    width: 100%;
+    width: 40%;
 }
 
 .add ion-icon {
@@ -202,6 +202,14 @@ a:hover {
     width: 40px;
     height: 40px;
     margin-left: auto;
+}
+
+.table {
+    color: white;
+}
+
+.table thead th {
+    border: none;
 }
 
 @media screen and (max-width: 1200px) {

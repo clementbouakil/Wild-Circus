@@ -18,7 +18,6 @@ public class Ticket {
     private Long id;
 
     private double price;
-
     private int quantity;
 
     @ManyToOne

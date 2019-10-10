@@ -27,9 +27,23 @@
                             Some quick example text to build on the card title
                             and make up the bulk of the card's content.
                         </p>
-                        <a th:href="@{/shows/} + ${show.id}" class="btn btn-success">
-                            Learn more
-                        </a>
+                        <form
+                            action="/tickets"
+                            method="POST"
+                            class="adding-show d-flex justify-content-between align-items-center"
+                        >
+                            <a
+                                th:href="@{/shows/} + ${show.id}"
+                                class="btn btn-success"
+                            >
+                                Learn more
+                            </a>
+                            <input type="hidden" name="price" th:value="${show.price}">
+                            <input type="hidden" name="quantity" th:value="1">
+                            <button type="submit" class="btn btn-success add">
+                                <ion-icon name="add-circle"></ion-icon>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </section>
