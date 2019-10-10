@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <div th:replace="fragments/head.html :: head"></div>
+    <body class="container">
+        <div th:replace="fragments/navbar.html :: navbar"></div>
+        <main>
+            <h1>Dashboard - Show</h1>
+            <hr />
+            <section class="registration-user p-4">
+                <form th:action="@{/admin/shows}" method="POST">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="show_name">
+                                Name
+                            </span>
+                        </div>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="name"
+                            required
+                        />
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="show_date">
+                                Date
+                            </span>
+                        </div>
+                        <input
+                            type="date"
+                            class="form-control"
+                            name="date"
+                            required
+                        />
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="show_duration">
+                                Duration (in minutes)
+                            </span>
+                        </div>
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="duration"
+                            min="1"
+                            required
+                        />
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="show_price">
+                                Price (in dollars)
+                            </span>
+                        </div>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="price"
+                            required
+                        />
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Description</span>
+                        </div>
+                        <textarea
+                            class="form-control"
+                            aria-label="With textarea"
+                        ></textarea>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="show_file">
+                                Upload
+                            </span>
+                        </div>
+                        <div class="custom-file">
+                            <input
+                                type="file"
+                                class="custom-file-input"
+                                id="file"
+                                aria-describedby="show_file"
+                            />
+                            <label class="custom-file-label" for="file"></label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                        Add
+                    </button>
+                </form>
+            </section>
+        </main>
+        <div th:replace="fragments/script.html :: script"></div>
+    </body>
+</html>
