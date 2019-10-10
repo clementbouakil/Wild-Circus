@@ -1,15 +1,9 @@
 package com.clementbouakil.wildCircus.entities;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Show {
@@ -19,13 +13,8 @@ public class Show {
     private Long id;
 
     private String name;
-    private String description;
-    private String price;
-    private String duration;
 
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date date;
+    private String description;
 
     public Long getId() {
         return id;
@@ -51,31 +40,18 @@ public class Show {
         this.description = description;
     }
 
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     public Show() {
     }
 
+    public Show(Long id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
+    public Show(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+    
 }
