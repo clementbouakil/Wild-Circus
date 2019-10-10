@@ -1,8 +1,5 @@
 package com.clementbouakil.wildCircus.controllers;
 
-import com.clementbouakil.wildCircus.entities.User;
-
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
