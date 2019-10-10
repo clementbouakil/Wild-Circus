@@ -9,29 +9,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PageController {
 
-    @GetMapping("/registration")
-    public String registration() {
-        return "registration";
-    }
-
     @GetMapping("/")
     public String index() {
         return "index";
     }
 
+    @GetMapping("/registration")
+    public String registration() {
+        return "registration";
+    }
+
     @GetMapping("/login")
     public String login() {
         return "login";
-    }
-
-    @GetMapping("/home")
-    public String forwardByRole(Authentication authentication) {
-        User currentUser = (User) authentication.getPrincipal();
-        if (currentUser.getRole().equals("ADMIN")) {
-            return "forward:/admin";
-        } else {
-            return "forward:/";
-        }
     }
 
 }
