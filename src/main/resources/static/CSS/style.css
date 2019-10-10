@@ -6,12 +6,31 @@ body {
     position: relative;
 }
 
+.banner {
+    height: 400px;
+    width: 60%;
+    background-size: cover;
+    background-position: center;
+    background-image: url(https://cdn.pixabay.com/photo/2015/07/02/10/16/circus-828680_1280.jpg);
+    box-shadow: 10px 10px white;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.presentation {
+    width: 35%;
+}
+
+.home {
+    width: 100%;
+}
+
 main {
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
 }
 
 h1 {
@@ -159,6 +178,26 @@ a:hover {
     position: relative;
 }
 
+.show-details .img-thumbnail {
+    width: 40%;
+}
+
+.show-details .informations {
+    width: 55%;
+}
+
+.img-thumbnail {
+    padding: 0;
+    border: none;
+    box-shadow: 10px 10px white;
+}
+
+.list-group-horizontal .list-group-item {
+    width: calc(90% / 3);
+    border-radius: 0.25rem;
+    box-shadow: 5px 5px rgba(255, 255, 255, 0.5);
+}
+
 @media screen and (max-width: 1200px) {
     .show {
         flex-direction: column;
@@ -186,6 +225,44 @@ a:hover {
 
     .card {
         width: 300px;
+    }
+
+    .home {
+        flex-direction: column;
+    }
+
+    .home .presentation,
+    .banner {
+        width: 100%;
+    }
+
+    .banner {
+        height: 200px;
+    }
+
+    .show-details {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .show-details .img-thumbnail {
+        width: 100%;
+    }
+
+    .show-details .informations {
+        width: 100%;
+        margin-bottom: 3vh;
+    }
+
+    .list-group-horizontal {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .list-group-horizontal .list-group-item {
+        width: 100%;
+        margin-bottom: 3vh;
     }
 }
 
