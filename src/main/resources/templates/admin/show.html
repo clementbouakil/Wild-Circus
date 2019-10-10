@@ -7,7 +7,7 @@
             <h1>Dashboard - Show</h1>
             <hr />
             <section class="registration-user p-4">
-                <form th:action="@{/admin/shows}" method="POST">
+                <form th:action="@{/shows}" method="POST">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="show_name">
@@ -41,10 +41,9 @@
                             </span>
                         </div>
                         <input
-                            type="number"
+                            type="text"
                             class="form-control"
                             name="duration"
-                            min="1"
                             required
                         />
                     </div>
@@ -61,17 +60,17 @@
                             required
                         />
                     </div>
-                    <div class="input-group mb-3">
+                    <textarea class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">Description</span>
+                            <span class="input-group-text" for="description">Description</span>
                         </div>
                         <textarea
                             class="form-control"
-                            aria-label="With textarea"
+                            name="description"
                         ></textarea>
                     </div>
 
-                    <div class="input-group mb-3">
+                    <!-- <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="show_file">
                                 Upload
@@ -86,7 +85,7 @@
                             />
                             <label class="custom-file-label" for="file"></label>
                         </div>
-                    </div>
+                    </div> -->
                     <button type="submit" class="btn btn-success">
                         Add
                     </button>

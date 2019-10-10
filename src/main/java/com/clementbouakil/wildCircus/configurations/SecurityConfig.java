@@ -17,6 +17,7 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 
 @EnableWebSecurity
 @Configuration
@@ -40,14 +41,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
         http
             .csrf().disable().authorizeRequests()
             .antMatchers(HttpMethod.GET, "/CSS/**", "/IMG/**").permitAll()
-            .antMatchers(HttpMethod.GET, "/", "/registration").permitAll()
+            .antMatchers(HttpMethod.GET, "/", "/registration", "/shows/**").permitAll()
             .antMatchers(HttpMethod.POST, "/users").permitAll()
             .antMatchers("/admin").hasAuthority("ADMIN")
+            .antMatchers(HttpMethod.GET, "/admin/**")
+                .hasAuthority("ADMIN")
+            .antMatchers(HttpMethod.POST, "/admin/**")
+                .hasAuthority("ADMIN")
             .anyRequest().authenticated()
             .and()
             .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/home", true)
+                .defaultSuccessUrl("/shows", true)
                 .permitAll()
             .and()
             .httpBasic();
@@ -67,5 +72,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
         authProvider.setPasswordEncoder(encoder);
 
         return authProvider;
+    }
+
+    @Bean
+    public SpringSecurityDialect springSecurityDialect() {
+        return new SpringSecurityDialect();
     }
 }
