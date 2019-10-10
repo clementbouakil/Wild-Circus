@@ -1,4 +1,4 @@
-spring.datasource.url = jdbc:mysql://localhost:3306/db_name?serverTimezone=UTC
+spring.datasource.url = jdbc:mysql://localhost:3306/circus_db?serverTimezone=UTC
 spring.datasource.username = #######
 spring.datasource.password = #######
 
