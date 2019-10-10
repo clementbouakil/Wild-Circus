@@ -4,21 +4,12 @@
     <body class="container">
         <div th:replace="fragments/navbar.html :: navbar"></div>
         <main>
-            <h1>Shows</h1>
+            <h1 th:text="${show.name}">Show name</h1>
             <hr />
-            <section class="show-card">
-                <div class="card" th:each="show : ${shows}">
-                    <img src="https://www.whatsonstage.com/s/wos-photos-production/115082.jpg" class="card-img-top" alt="picture of show" />
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title
-                            and make up the bulk of the card's content.
-                        </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </section>
+            <p th:text="${show.description}">
+                Welcome to the circus de la wild website. You can check our
+                shows and register to reserve your seats.
+            </p>
         </main>
         <div th:replace="fragments/script.html :: script"></div>
     </body>

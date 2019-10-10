@@ -25,6 +25,13 @@ public class SpectacleController {
     public String show(Model model) {
         List<Spectacle> spectacleList = spectacleRepository.findAll();
         model.addAttribute("shows", spectacleList);
+        return "shows";
+    }
+
+    @GetMapping("/shows/{id}")
+    public String read(@PathVariable Long id, Model model) {
+        Spectacle spectacle = spectacleRepository.findById(id).get();
+        model.addAttribute("show", spectacle);
         return "show";
     }
 

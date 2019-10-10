@@ -3,6 +3,7 @@ body {
     min-height: 100vh;
     text-align: center;
     color: white;
+    position: relative;
 }
 
 main {
@@ -11,6 +12,11 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
 }
 
 hr {
@@ -54,7 +60,12 @@ a:hover {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: white;
+    color: #3b009b;
+    font-weight: bold;
+    background-color: #ffd000;
+    margin: 0 3vh;
+    box-shadow: 10px 10px white;
+    border-bottom-left-radius: 0.25rem;
 }
 
 .btn-success:hover {
@@ -120,6 +131,34 @@ a:hover {
     border: #ffd000;
 }
 
+.card {
+    width: calc(90% / 3);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+}
+
+.date-show {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 1000;
+    background-color: #ffd000;
+    color: #3b009b;
+    font-weight: bold;
+    padding: 1vh 2vh;
+    border-bottom-left-radius: 0.25rem;
+    box-shadow: 10px 10px white;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+.card-img-top {
+    position: relative;
+}
+
 @media screen and (max-width: 1200px) {
     .show {
         flex-direction: column;
@@ -143,6 +182,10 @@ a:hover {
     .show-spectacle {
         width: 100%;
         margin: 0;
+    }
+
+    .card {
+        width: 300px;
     }
 }
 

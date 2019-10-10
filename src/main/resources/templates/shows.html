@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <div th:replace="fragments/head.html :: head"></div>
+    <body class="container">
+        <div th:replace="fragments/navbar.html :: navbar"></div>
+        <main>
+            <h1>Shows</h1>
+            <hr />
+            <section
+                class="show-card d-flex flex-wrap justify-content-around p-4"
+            >
+                <div class="card m-2" th:each="show : ${shows}">
+                    <span th:text="${show.date}" class="date-show"></span>
+                    <img
+                        src="https://www.whatsonstage.com/s/wos-photos-production/115082.jpg"
+                        class="card-img-top grayscale"
+                        alt="picture of show"
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${show.name}">
+                            Card title
+                        </h5>
+                        <p
+                            class="card-text text-justify"
+                            th:text="${#strings.abbreviate(show.description, 100)}"
+                        >
+                            Some quick example text to build on the card title
+                            and make up the bulk of the card's content.
+                        </p>
+                        <a th:href="@{/shows/} + ${show.id}" class="btn btn-success">
+                            Learn more
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div th:replace="fragments/script.html :: script"></div>
+    </body>
+</html>
