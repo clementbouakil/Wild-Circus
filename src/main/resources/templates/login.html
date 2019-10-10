@@ -5,6 +5,7 @@
         <div th:replace="fragments/navbar.html :: navbar"></div>
         <main>
             <h1>Login</h1>
+            <hr />
             <section class="registration-user p-4">
                 <form action="/login" method="POST">
                     <div class="input-group mb-3">
@@ -38,7 +39,10 @@
                     </button>
                 </form>
             </section>
-            <p>You do not have an account ? <a href="/registration">Create it</a></p>
+            <p>
+                You do not have an account ?
+                <a href="/registration">Create it</a>
+            </p>
         </main>
         <div th:replace="fragments/script.html :: script"></div>
     </body>
