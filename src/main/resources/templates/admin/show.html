@@ -4,10 +4,13 @@
     <body class="container">
         <div th:replace="fragments/navbar.html :: navbar"></div>
         <main>
-            <h1>Dashboard - Show</h1>
+            <h1>Dashboard</h1>
             <hr />
-            <section class="registration-user p-4">
-                <form th:action="@{/shows}" method="POST">
+            <section
+                class="show d-flex p-4 justify-content-around align-items-center"
+            >
+                <form th:action="@{/shows}" method="POST" class="rounded p-3 d-flex flex-column align-items-center create-show">
+                    <h2 class="mb-3">Show creation</h2>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="show_name">
@@ -18,6 +21,7 @@
                             type="text"
                             class="form-control"
                             name="name"
+                            autofocus
                             required
                         />
                     </div>
@@ -62,34 +66,49 @@
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" for="description">Description</span>
+                            <span class="input-group-text" for="description">
+                                Description
+                            </span>
                         </div>
                         <textarea
                             class="form-control"
                             name="description"
                         ></textarea>
                     </div>
-
-                    <!-- <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="show_file">
-                                Upload
-                            </span>
-                        </div>
-                        <div class="custom-file">
-                            <input
-                                type="file"
-                                class="custom-file-input"
-                                id="file"
-                                aria-describedby="show_file"
-                            />
-                            <label class="custom-file-label" for="file"></label>
-                        </div>
-                    </div> -->
-                    <button type="submit" class="btn btn-success">
-                        Add
+                    <button type="submit" class="btn btn-success add">
+                        <ion-icon name="add-circle"></ion-icon>
                     </button>
                 </form>
+
+                <section class="show-spectacle rounded p-3">
+                    <h2 class="mb-3">List of shows</h2>
+                    <ul class="list-group" th:each="show : ${shows}">
+                        <li
+                            th:text="${show.name}"
+                            class="list-group-item mb-3 rounded"
+                        >
+                            item
+                        </li>
+                        <form
+                            th:action="@{/shows/} + ${show.id}"
+                            th:method="DELETE"
+                            class="mr-3"
+                        >
+                            <input
+                                type="hidden"
+                                th:value="${show.id}"
+                                th:name="id"
+                            />
+
+                            <button
+                                type="submit"
+                                class="btn btn-success delete"
+                            >
+                                <ion-icon name="trash"></ion-icon>
+                            </button>
+                        </form>
+                    </ul>
+                </section>
             </section>
         </main>
         <div th:replace="fragments/script.html :: script"></div>
