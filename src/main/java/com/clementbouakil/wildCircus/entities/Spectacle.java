@@ -1,9 +1,15 @@
 package com.clementbouakil.wildCircus.entities;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Spectacle {
@@ -15,6 +21,28 @@ public class Spectacle {
     private String name;
 
     private String description;
+
+    private String duration;
+
+    private String price;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    private Date date;
+
+    public Spectacle() {
+    }
+
+    public Spectacle(Long id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
+    public Spectacle(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public Long getId() {
         return id;
@@ -40,18 +68,28 @@ public class Spectacle {
         this.description = description;
     }
 
-    public Spectacle() {
+    public String getDuration() {
+        return duration;
     }
 
-    public Spectacle(Long id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 
-    public Spectacle(String name, String description) {
-        this.name = name;
-        this.description = description;
+    public String getPrice() {
+        return price;
     }
-    
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
 }
