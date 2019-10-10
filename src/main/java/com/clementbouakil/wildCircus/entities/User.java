@@ -1,11 +1,15 @@
 package com.clementbouakil.wildCircus.entities;
 
 import java.util.Collection;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
@@ -31,6 +35,9 @@ public class User implements UserDetails {
     private String password;
 
     private String role = "USER";
+
+    @OneToMany(mappedBy="user")
+    private Set<Ticket> tickets;
 
     public Long getId() {
         return id;
@@ -114,25 +121,20 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String email, String password, String role) {
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
-
-    public User(String firstname, String lastname, String email, String password) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
-    }
-
     public User(String email, String password, String role, String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public Set<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
     }
 
 }

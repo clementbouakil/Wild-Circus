@@ -1,11 +1,13 @@
 package com.clementbouakil.wildCircus.entities;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -29,6 +31,9 @@ public class Spectacle {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date date;
+
+    @ManyToMany
+    private Set<Ticket> tickets;
 
     public Spectacle() {
     }
@@ -90,6 +95,14 @@ public class Spectacle {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Set<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
     }
 
 }
