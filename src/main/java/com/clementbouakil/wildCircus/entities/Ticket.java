@@ -1,13 +1,10 @@
 package com.clementbouakil.wildCircus.entities;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -24,8 +21,9 @@ public class Ticket {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToMany
-    private Set<Spectacle> spectacles;
+    @ManyToOne
+    @JoinColumn(name = "spectacle_id", nullable = false)
+    private Spectacle spectacle;
 
     public Long getId() {
         return id;
@@ -73,12 +71,12 @@ public class Ticket {
         this.user = user;
     }
 
-    public Set<Spectacle> getSpectacles() {
-        return spectacles;
+    public Spectacle getSpectacle() {
+        return spectacle;
     }
 
-    public void setSpectacles(Set<Spectacle> spectacles) {
-        this.spectacles = spectacles;
+    public void setSpectacle(Spectacle spectacle) {
+        this.spectacle = spectacle;
     }
 
 }

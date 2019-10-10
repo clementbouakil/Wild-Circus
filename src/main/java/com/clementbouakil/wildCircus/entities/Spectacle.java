@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -32,7 +32,7 @@ public class Spectacle {
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    @ManyToMany
+    @OneToMany(mappedBy="spectacle")
     private Set<Ticket> tickets;
 
     public Spectacle() {
@@ -95,14 +95,6 @@ public class Spectacle {
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    public Set<Ticket> getTickets() {
-        return tickets;
-    }
-
-    public void setTickets(Set<Ticket> tickets) {
-        this.tickets = tickets;
     }
 
 }

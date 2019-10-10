@@ -19,6 +19,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/shows">Shows</a>
             </li>
+            <li class="nav-item" sec:authorize="!isAnonymous()">
+                <a class="nav-link" href="/order">Order</a>
+            </li>
             <li class="nav-item" sec:authorize="isAnonymous()">
                 <a class="nav-link" href="/login">Sign in / Login</a>
             </li>
@@ -29,10 +32,5 @@
                 <a class="nav-link" href="/admin/shows">Administration</a>
             </li>
         </ul>
-    </div>
-    <div class="order" sec:authorize="!isAnonymous()">
-        <a href="/order">
-            <ion-icon name="cart" class="order"></ion-icon>
-        </a>
     </div>
 </nav>
