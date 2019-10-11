@@ -10,7 +10,7 @@
                 class="show-card d-flex flex-wrap justify-content-around p-4"
             >
                 <div class="card m-2" th:each="show : ${shows}">
-                    <span th:text="${show.date}" class="date-show"></span>
+                    <span th:text="${show.date}" class="date-show text-monospace"></span>
                     <img
                         src="https://www.whatsonstage.com/s/wos-photos-production/115082.jpg"
                         class="card-img-top grayscale"

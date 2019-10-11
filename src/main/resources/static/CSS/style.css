@@ -49,6 +49,14 @@ hr {
     width: 100%;
 }
 
+.card-title::after, .card-title::before {
+    display: inline-block;
+    content: "";
+    border-top: 3px dotted #ffd000;
+    width: 4rem;
+    margin: 0 1rem;
+}
+
 a {
     color: #ffd000;
 }
