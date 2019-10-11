@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-
 @Controller
 public class TicketController {
 
@@ -29,7 +28,7 @@ public class TicketController {
     @Autowired
     SpectacleRepository spectacleRepository;
 
-    @GetMapping("/order")
+    @GetMapping("/tickets")
     public String order(Model model) {
         List<Ticket> tickets = ticketRepository.findAll();
         model.addAttribute("tickets", tickets);
@@ -45,13 +44,13 @@ public class TicketController {
         ticket.setQuantity(ticket.getQuantity() + 1);
         ticket.setSpectacle(spectacle);
         ticketRepository.save(ticket);
-        return "redirect:/order";
+        return "redirect:/tickets";
     }
 
     @DeleteMapping("/tickets/{id}")
     public String delete(@PathVariable Long id) {
         ticketRepository.deleteById(id);
-        return "redirect:/order";
+        return "redirect:/tickets";
     }
 
     @PutMapping("/tickets/{id}")
@@ -59,7 +58,7 @@ public class TicketController {
         Ticket ticket = ticketRepository.getOne(id);
         ticket.setQuantity(ticket.getQuantity() + 1);
         ticketRepository.save(ticket);
-        return "redirect:/order";
+        return "redirect:/tickets";
     }
 
 }

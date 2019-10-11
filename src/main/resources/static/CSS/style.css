@@ -4,6 +4,7 @@ body {
     text-align: center;
     color: white;
     position: relative;
+    font-family: "Roboto", sans-serif;
 }
 
 .banner {
@@ -34,8 +35,13 @@ main {
 }
 
 h1 {
-    text-transform: uppercase;
     letter-spacing: 5px;
+    font-family: "Mansalva", cursive;
+}
+
+.navbar-brand {
+    font-family: "Mansalva", cursive;
+    font-size: 20pt;
 }
 
 hr {
